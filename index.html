@@ -4,241 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#183b2e">
-  <meta name="description" content="كبايتي — كبة وبرك وشيش برك بطابع بيتي في دمشق. اطلب بسهولة عبر واتساب.">
-  <title>كبايتي | طعم البيت على سفرتك</title>
+  <meta name="description" content="كبايتي — كبة وبرك وشيش برك بطابع بيتي في دمشق. اطلبوا بسهولة عبر واتساب.">
+  <title>كبايتي | طعم البيت على سفرتكم</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      color-scheme: light;
-      --green: #183b2e;
-      --green-2: #244e3c;
-      --cream: #f7f4ed;
-      --paper: #fffdf8;
-      --gold: #bd9656;
-      --ink: #292b26;
-      --muted: #77776e;
-      --line: #e9e3d7;
-      --radius: 22px;
-      --shadow: 0 16px 42px rgba(37, 45, 34, .08);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-    body { margin: 0; background: var(--cream); color: var(--ink); font: 17px/1.8 "Noto Naskh Arabic", serif; }
-    a { color: inherit; text-decoration: none; }
-    button, input, select { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    .container { width: min(1120px, calc(100% - 36px)); margin-inline: auto; }
-    .announcement { background: var(--green); color: #fff; text-align: center; padding: 7px 16px; font-size: 15px; }
-    .site-header { position: sticky; top: 0; z-index: 20; background: rgba(255,253,248,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--green); font-size: 27px; font-weight: 800; white-space: nowrap; }
-    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--gold); border-radius: 50%; color: var(--gold); font-size: 25px; }
-    .nav-links { display: flex; align-items: center; gap: clamp(12px, 2.2vw, 28px); color: #50544c; font-weight: 700; }
-    .nav-links a:hover { color: var(--gold); }
-    .button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 46px; padding: 9px 20px; border: 1px solid transparent; border-radius: 999px; font-weight: 800; cursor: pointer; transition: .2s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--green); color: #fff; }
-    .button-outline { border-color: var(--line); background: var(--paper); color: var(--green); }
-    .hero { padding: 36px 0 22px; }
-    .hero-card { position: relative; overflow: hidden; min-height: 440px; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; border: 1px solid #e6dece; border-radius: 30px; background: radial-gradient(ellipse at 18% 82%, #e8dfce 0, transparent 34%), linear-gradient(125deg,#fffdf8,#f0eadc); box-shadow: var(--shadow); }
-    .hero-copy { padding: 54px clamp(26px, 6vw, 72px); }
-    .eyebrow { color: var(--gold); font-weight: 800; letter-spacing: .03em; }
-    h1 { margin: 8px 0 15px; color: var(--green); font-size: clamp(39px, 5vw, 66px); line-height: 1.25; }
-    .hero-copy p { max-width: 570px; margin: 0 0 25px; color: var(--muted); font-size: 19px; }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-    .hero-art { min-height: 360px; display: grid; place-items: center; padding: 24px; }
-    .serving { width: min(330px, 80vw); aspect-ratio: 1; position: relative; display: grid; place-items: center; border: 1px solid rgba(189,150,86,.55); border-radius: 50%; background: radial-gradient(circle, #fffdf8 0 48%, #eee6d5 49% 53%, transparent 54%); color: var(--green); }
-    .serving::before, .serving::after { content: ""; position: absolute; border: 1px solid rgba(189,150,86,.35); border-radius: 50%; inset: 14px; }
-    .serving::after { inset: 28px; }
-    .serving span { z-index: 1; font-size: 105px; filter: drop-shadow(0 10px 12px rgba(50,40,20,.14)); }
-    .serving small { position: absolute; bottom: 42px; z-index: 2; padding: 2px 14px; border-radius: 30px; background: var(--paper); color: var(--green); font-weight: 800; }
-    .section { padding: 40px 0; }
-    .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 18px; margin-bottom: 22px; }
-    .section-heading h2 { margin: 0; color: var(--green); font-size: clamp(30px, 3.2vw, 40px); line-height: 1.3; }
-    .section-heading p { margin: 3px 0 0; color: var(--muted); }
-    .quiet-label { color: var(--gold); font-weight: 800; }
-    .products { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
-    .product { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 8px 24px rgba(35,45,33,.04); transition: .2s ease; }
-    .product:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .product-art { min-height: 180px; display: grid; place-items: center; background: linear-gradient(140deg,#e9e1d0,#f6f1e7); color: var(--green); font-size: 74px; }
-    .product:nth-child(2) .product-art { background: linear-gradient(140deg,#e5e9dd,#f3f1e7); }
-    .product:nth-child(3) .product-art { background: linear-gradient(140deg,#eee2d5,#faf2e8); }
-    .product:nth-child(4) .product-art { background: linear-gradient(140deg,#e7e4d7,#f5f2e9); }
-    .product:nth-child(5) .product-art { background: linear-gradient(140deg,#e9dfd4,#f8f0e7); }
-    .product-content { padding: 17px 19px 20px; }
-    .product h3 { margin: 0 0 4px; color: var(--green); font-size: 24px; }
-    .product p { min-height: 50px; margin: 0 0 13px; color: var(--muted); }
-    .product-bottom { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-    .price { color: var(--gold); font-weight: 800; }
-    .order-link { color: var(--green); font-weight: 800; border-bottom: 1px solid var(--gold); }
-    .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .note { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: var(--paper); }
-    .note-icon { font-size: 25px; }
-    .note h3 { margin: 5px 0 2px; color: var(--green); font-size: 21px; }
-    .note p { margin: 0; color: var(--muted); }
-    .status-card { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); }
-    .status-card h3 { margin: 0 0 3px; color: var(--green); font-size: 23px; }
-    .status-card p { margin: 0; color: var(--muted); }
-    .badge { flex: 0 0 auto; padding: 5px 14px; border: 1px solid #e5d7b8; border-radius: 999px; background: #fbf5e8; color: #816433; font-size: 14px; font-weight: 800; }
-    .order-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: start; }
-    .order-panel, .map-panel { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); box-shadow: 0 8px 24px rgba(35,45,33,.04); }
-    .order-panel h2, .map-panel h2 { margin: 0 0 14px; color: var(--green); font-size: 30px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
-    .field { display: grid; gap: 5px; }
-    .field-wide { grid-column: 1 / -1; }
-    .field label { color: var(--green); font-weight: 700; }
-    .field input, .field select { width: 100%; min-height: 48px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; background: #fff; color: var(--ink); }
-    .order-panel .button { width: 100%; margin-top: 16px; }
-    .form-hint { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
-    .map-placeholder { min-height: 190px; display: grid; place-items: center; margin: 12px 0; border-radius: 16px; background: linear-gradient(135deg,#ebe8de,#f4f1e9); color: var(--green); text-align: center; }
-    .map-placeholder span { display: block; font-size: 48px; }
-    .map-panel p { color: var(--muted); }
-    .contact-band { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 24px 28px; border-radius: var(--radius); background: var(--green); color: #fff; }
-    .contact-band h2 { margin: 0; font-size: 27px; }
-    .contact-band p { margin: 2px 0 0; opacity: .8; }
-    .contact-band .button { background: #fff; color: var(--green); }
-    footer { margin-top: 30px; padding: 22px 0; background: #142e24; color: rgba(255,255,255,.82); }
-    .footer-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    @media (max-width: 850px) {
-      .nav { flex-wrap: wrap; padding-block: 10px; }
-      .nav-links { order: 3; width: 100%; justify-content: space-between; overflow-x: auto; gap: 18px; font-size: 15px; }
-      .hero-card { grid-template-columns: 1fr; }
-      .hero-copy { padding-bottom: 8px; }
-      .hero-art { min-height: 290px; }
-      .serving { width: 250px; }
-      .serving span { font-size: 80px; }
-      .products { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .order-layout { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 560px) {
-      body { font-size: 16px; }
-      .container { width: min(100% - 26px, 1120px); }
-      .nav > .button { min-height: 40px; padding-inline: 14px; font-size: 14px; }
-      .brand { font-size: 24px; }
-      .nav-links { justify-content: flex-start; }
-      .hero { padding-top: 20px; }
-      .hero-copy { padding: 30px 22px 8px; }
-      h1 { font-size: 42px; }
-      .hero-copy p { font-size: 17px; }
-      .hero-actions { flex-direction: column; }
-      .hero-actions .button { width: 100%; }
-      .hero-art { min-height: 250px; }
-      .section { padding: 30px 0; }
-      .section-heading { align-items: start; flex-direction: column; gap: 4px; }
-      .products, .notes { grid-template-columns: 1fr; }
-      .product-art { min-height: 145px; }
-      .status-card, .contact-band { align-items: flex-start; flex-direction: column; }
-      .form-grid { grid-template-columns: 1fr; }
-      .field-wide { grid-column: auto; }
-      .order-panel, .map-panel { padding: 18px; }
-    }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    :root{--green:#183b2e;--green2:#244e3c;--cream:#f7f4ed;--paper:#fffdf8;--gold:#bd9656;--ink:#292b26;--muted:#77776e;--line:#e9e3d7;--radius:22px;--shadow:0 16px 42px rgba(37,45,34,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.8 "Noto Naskh Arabic",serif}a{color:inherit;text-decoration:none}button,input,select{font:inherit}.container{width:min(1120px,calc(100% - 36px));margin:auto}
+    .announcement{background:var(--green);color:white;text-align:center;padding:7px 14px;font-size:15px}.header{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.95);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;color:var(--green);font-size:27px;font-weight:800;white-space:nowrap}.brand-mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:24px}.nav-links{display:flex;gap:clamp(12px,2vw,26px);font-weight:700;color:#50544c}.nav-links a:hover{color:var(--gold)}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:45px;padding:8px 19px;border:1px solid transparent;border-radius:999px;font-weight:800;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--green);color:white}.btn-light{background:var(--paper);border-color:var(--line);color:var(--green)}
+    .hero{padding:32px 0 20px}.hero-box{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;border:1px solid #e6dece;border-radius:30px;background:linear-gradient(125deg,#fffdf8,#f0eadc);box-shadow:var(--shadow)}.hero-copy{padding:48px clamp(24px,6vw,68px)}.eyebrow{color:var(--gold);font-weight:800}h1{margin:8px 0 14px;color:var(--green);font-size:clamp(40px,5vw,64px);line-height:1.25}.hero-copy p{max-width:560px;margin:0 0 22px;color:var(--muted);font-size:19px}.actions{display:flex;gap:11px;flex-wrap:wrap}.hero-photo{height:390px;padding:20px}.hero-photo img{width:100%;height:100%;object-fit:cover;border-radius:24px;box-shadow:var(--shadow)}
+    .section{padding:38px 0}.heading{margin-bottom:20px}.heading h2{margin:0;color:var(--green);font-size:clamp(29px,3vw,39px);line-height:1.35}.heading p{margin:2px 0 0;color:var(--muted)}.gold{color:var(--gold);font-weight:800}.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.product{overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 8px 22px rgba(35,45,33,.04)}.product img{width:100%;height:210px;object-fit:cover;background:#eee9dd}.product-body{padding:15px 18px 19px}.product h3{margin:0;color:var(--green);font-size:23px}.product p{min-height:48px;margin:2px 0 10px;color:var(--muted)}.product-foot{display:flex;justify-content:space-between;align-items:center;gap:8px}.price{color:var(--gold);font-weight:800}.order-link{color:var(--green);font-weight:800;border-bottom:1px solid var(--gold)}
+    .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.gallery img{width:100%;height:190px;object-fit:cover;border-radius:16px;border:1px solid var(--line);background:#eee9dd;cursor:pointer;transition:.2s}.gallery img:hover{transform:scale(1.02)}.status{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:20px 23px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper)}.status h3{margin:0;color:var(--green);font-size:23px}.status p{margin:2px 0 0;color:var(--muted)}.badge{flex:none;padding:4px 13px;border-radius:99px;background:#fbf5e8;border:1px solid #e5d7b8;color:#816433;font-size:14px;font-weight:800}
+    .order-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}.panel{padding:22px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 8px 22px rgba(35,45,33,.04)}.panel h2{margin:0 0 12px;color:var(--green);font-size:29px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:4px}.wide{grid-column:1/-1}.field label{color:var(--green);font-weight:700}.field input,.field select{width:100%;min-height:46px;padding:7px 11px;border:1px solid var(--line);border-radius:11px;background:white;color:var(--ink)}.panel form .btn{width:100%;margin-top:14px}.hint{margin:7px 0 0;color:var(--muted);font-size:14px}.mapbox{min-height:175px;margin:10px 0;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,#ebe8de,#f4f1e9);color:var(--green);text-align:center}.mapbox span{display:block;font-size:44px}.contact{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;border-radius:var(--radius);background:var(--green);color:white}.contact h2{margin:0;font-size:26px}.contact p{margin:0;opacity:.82}.contact .btn{background:white;color:var(--green)}footer{margin-top:25px;padding:18px 0;background:#142e24;color:#eee}.footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    @media(max-width:850px){.nav{flex-wrap:wrap;padding:9px 0}.nav-links{order:3;width:100%;justify-content:space-between;overflow:auto}.hero-box{grid-template-columns:1fr}.hero-copy{padding-bottom:8px}.hero-photo{height:320px}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.order-layout{grid-template-columns:1fr}}
+    @media(max-width:560px){.container{width:calc(100% - 26px)}.nav-links{justify-content:flex-start;gap:18px;font-size:15px}.nav>.btn{padding:7px 12px;font-size:14px}.hero-copy{padding:28px 21px 5px}h1{font-size:42px}.hero-copy p{font-size:17px}.actions{flex-direction:column}.actions .btn{width:100%}.hero-photo{height:260px}.section{padding:29px 0}.products,.gallery{grid-template-columns:1fr}.product img{height:220px}.gallery img{height:230px}.status,.contact{align-items:flex-start;flex-direction:column}.fields{grid-template-columns:1fr}.wide{grid-column:auto}.panel{padding:17px}}
   </style>
 </head>
 <body>
   <div class="announcement">من مطبخنا إلى سفرتكم — مذاق بيتي في دمشق</div>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="كبايتي — الرئيسية"><span class="brand-mark">ك</span><span>كبايتي</span></a>
-      <nav class="nav-links" aria-label="القائمة الرئيسية">
-        <a href="#products">منتجاتنا</a><a href="#offers">العروض</a><a href="#delivery">التوصيل</a><a href="#order">اطلب الآن</a>
-      </nav>
-      <a class="button button-primary" href="https://wa.me/963990424380" target="_blank" rel="noopener">تواصل عبر واتساب</a>
-    </div>
-  </header>
-
+  <header class="header"><div class="container nav">
+    <a class="brand" href="#home"><span class="brand-mark">ك</span><span>كبايتي</span></a>
+    <nav class="nav-links" aria-label="القائمة الرئيسية"><a href="#products">منتجاتنا</a><a href="#gallery">صورنا</a><a href="#offers">العروض</a><a href="#delivery">التوصيل</a><a href="#order">اطلبوا الآن</a></nav>
+    <a class="btn btn-primary" href="https://wa.me/963990424380" target="_blank" rel="noopener">واتساب</a>
+  </div></header>
   <main id="home">
-    <section class="hero">
-      <div class="container hero-card">
-        <div class="hero-copy">
-          <span class="eyebrow">نكهة سورية بمحبة</span>
-          <h1>طعم البيت،<br>على سفرتك.</h1>
-          <p>كبة وبرك وشيش برك محضّرة بعناية لتجمع العائلة حول أطيب النكهات. تصفّحوا منتجاتنا واطلبوا بكل سهولة.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#products">اكتشفوا منتجاتنا</a><a class="button button-outline" href="#order">جهّزوا طلبكم</a></div>
-        </div>
-        <div class="hero-art" aria-label="رسم زخرفي لصحن طعام"><div class="serving"><span aria-hidden="true">❋</span><small>صُنع بمحبة</small></div></div>
+    <section class="hero"><div class="container hero-box">
+      <div class="hero-copy"><span class="eyebrow">نكهة سورية بمحبة</span><h1>طعم البيت،<br>على سفرتكم.</h1><p>كبة بأنواعها، برك جبنة ولحمة، وشيش برك — محضّرة لتجمع العائلة حول أطيب النكهات في دمشق.</p><div class="actions"><a class="btn btn-primary" href="#products">تصفّحوا المنتجات</a><a class="btn btn-light" href="#order">اطلبوا الآن</a></div></div>
+      <div class="hero-photo"><img src="WhatsApp%20Image%202026-11-07%20at%208.57.31%20PM.jpeg" alt="من منتجات كبايتي"></div>
+    </div></section>
+    <section class="section" id="products"><div class="container"><div class="heading"><span class="gold">من مطبخ كبايتي</span><h2>اختاروا ما تحبّون</h2><p>الأسعار وتفاصيل الأنواع متاحة عبر واتساب.</p></div>
+      <div class="products">
+        <article class="product"><img src="WhatsApp%20Image%202026-11-07%20at%208.57.34%20PM.jpeg" alt="كبة من كبايتي"><div class="product-body"><h3>كبة بأنواعها</h3><p>تشكيلة كبة شهية، اسألونا عن الأنواع المتوفرة.</p><div class="product-foot"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="كبة بأنواعها">اطلبوا</a></div></div></article>
+        <article class="product"><img src="WhatsApp%20Image%202026-11-07%20at%208.57.35%20PM.jpeg" alt="برك جبنة من كبايتي"><div class="product-body"><h3>برك جبنة</h3><p>برك بحشوة الجبنة، مناسبة للمشاركة على السفرة.</p><div class="product-foot"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="برك جبنة">اطلبوا</a></div></div></article>
+        <article class="product"><img src="WhatsApp%20Image%202026-11-07%20at%208.57.36%20PM.jpeg" alt="برك لحمة من كبايتي"><div class="product-body"><h3>برك لحمة</h3><p>برك بحشوة اللحمة، بطعم غني ولمسة بيتية.</p><div class="product-foot"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="برك لحمة">اطلبوا</a></div></div></article>
+        <article class="product"><img src="WhatsApp%20Image%202026-11-07%20at%208.57.37%20PM.jpeg" alt="شيش برك من كبايتي"><div class="product-body"><h3>شيش برك</h3><p>طبق شامي محبوب، متوفر للطلب والاستفسار.</p><div class="product-foot"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="شيش برك">اطلبوا</a></div></div></article>
       </div>
-    </section>
-
-    <section class="section" id="products">
-      <div class="container">
-        <div class="section-heading"><div><span class="quiet-label">من مطبخ كبايتي</span><h2>اختاروا ما تحبّون</h2><p>للسعر والتفاصيل، اسألونا مباشرة عبر واتساب.</p></div></div>
-        <div class="products">
-          <article class="product"><div class="product-art" aria-hidden="true">❋</div><div class="product-content"><h3>كبة بأنواعها</h3><p>تشكيلة كبة شهية، وتفاصيل الأنواع متاحة عند الطلب.</p><div class="product-bottom"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="كبة بأنواعها">اطلبوا</a></div></div></article>
-          <article class="product"><div class="product-art" aria-hidden="true">✿</div><div class="product-content"><h3>برك جبنة</h3><p>برك بحشوة الجبنة، مناسبة للمشاركة على السفرة.</p><div class="product-bottom"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="برك جبنة">اطلبوا</a></div></div></article>
-          <article class="product"><div class="product-art" aria-hidden="true">❀</div><div class="product-content"><h3>برك لحمة</h3><p>برك بحشوة اللحمة، بطعم غني ولمسة بيتية.</p><div class="product-bottom"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="برك لحمة">اطلبوا</a></div></div></article>
-          <article class="product"><div class="product-art" aria-hidden="true">✽</div><div class="product-content"><h3>شيش برك</h3><p>طبق شهي من ��لمطبخ الشامي، متوفر للطلب.</p><div class="product-bottom"><span class="price">السعر عند الاستفسار</span><a class="order-link" href="#order" data-product="شيش برك">اطلبوا</a></div></div></article>
-          <article class="product"><div class="product-art" aria-hidden="true">❋</div><div class="product-content"><h3>طلبات خاصة</h3><p>عندكم مناسبة أو كمية خاصة؟ تواصلوا معنا لنرتبها.</p><div class="product-bottom"><span class="price">اسألونا عن المتاح</span><a class="order-link" href="#order" data-product="طلب خاص">استفسروا</a></div></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" aria-label="مميزات الطلب">
-      <div class="container notes">
-        <article class="note"><span class="note-icon" aria-hidden="true">��</span><h3>تحضير بعناية</h3><p>نهتم بالتفاصيل لتصل طلباتكم كما تحبونها.</p></article>
-        <article class="note"><span class="note-icon" aria-hidden="true">⌂</span><h3>للعائلة والضيافة</h3><p>خيارات مناسبة لوجبات البيت ولمّة الأحباب.</p></article>
-        <article class="note"><span class="note-icon" aria-hidden="true">♡</span><h3>طلب سهل ومباشر</h3><p>أرسلوا تفاصيل طلبكم عبر واتساب وسنتواصل للتأكيد.</p></article>
-      </div>
-    </section>
-
-    <section class="section" id="offers">
-      <div class="container"><div class="status-card"><div><h3>العروض</h3><p>نعمل على تجهيز عروض مميزة لكم. تابعونا قريبًا!</p></div><span class="badge">قيد التطوير</span></div></div>
-    </section>
-
-    <section class="section" id="delivery">
-      <div class="container"><div class="status-card"><div><h3>التوصيل في دمشق</h3><p>تفاصيل المناطق والرسوم ومواعيد التوصيل ستُعلن قريبًا. راسلونا للتأكد من توفر التوصيل لمنطقتكم.</p></div><span class="badge">قيد التطوير</span></div></div>
-    </section>
-
-    <section class="section" id="order">
-      <div class="container order-layout">
-        <form class="order-panel" id="order-form">
-          <h2>جهّزوا طلبكم</h2>
-          <div class="form-grid">
-            <div class="field field-wide"><label for="product">المنتج</label><select id="product" required><option value="" disabled selected>اختاروا المنتج</option><option>كبة بأنواعها</option><option>برك جبنة</option><option>برك لحمة</option><option>شيش برك</option><option>طلب خاص</option></select></div>
-            <div class="field"><label for="quantity">الكمية أو عدد العبوات</label><input id="quantity" type="text" placeholder="مثال: 2 عبوة" required></div>
-            <div class="field"><label for="name">الاسم</label><input id="name" type="text" autocomplete="name" placeholder="اسمكم" required></div>
-            <div class="field"><label for="area">المنطقة في دمشق</label><input id="area" type="text" placeholder="المنطقة" required></div>
-            <div class="field"><label for="payment">طريقة الدفع المفضلة</label><select id="payment" required><option value="" disabled selected>اختاروا طريقة الدفع</option><option>نقدًا عند الاستلام</option><option>دفع إلكتروني — تأكيد التفاصيل عبر واتساب</option></select></div>
-          </div>
-          <button class="button button-primary" type="submit">إرسال الطلب عبر واتساب</button>
-          <p class="form-hint">سيُفتح واتساب برسالة جاهزة لمراجعتها وإرسالها. الطلب لا يُؤكَّد إلا بعد تواصلنا معكم.</p>
-        </form>
-        <aside class="map-panel">
-          <h2>موقعنا</h2>
-          <div class="map-placeholder"><div><span aria-hidden="true">⌖</span>دمشق، سوريا</div></div>
-          <p>نعمل على إضافة موقع دقيق ومناطق التوصيل. اسألونا عن منطقتكم عبر واتساب.</p>
-          <a class="order-link" href="https://www.google.com/maps/search/?api=1&query=Damascus%2C%20Syria" target="_blank" rel="noopener">افتحوا خريطة دمشق</a>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container contact-band"><div><h2>نحن بانتظار طلبكم</h2><p>للاستفسار عن الأنواع والأسعار والتوفر.</p></div><a class="button" href="https://wa.me/963990424380" target="_blank" rel="noopener">راسلونا على واتساب</a></div>
-    </section>
+    </div></section>
+    <section class="section" id="gallery"><div class="container"><div class="heading"><span class="gold">من صور منتجاتنا</span><h2>معرض كبايتي</h2></div><div class="gallery" id="gallery-images"></div></div></section>
+    <section class="section" id="offers"><div class="container"><div class="status"><div><h3>العروض</h3><p>نعمل على تجهيز عروض مميزة لكم. تابعونا قريبًا!</p></div><span class="badge">قيد التطوير</span></div></div></section>
+    <section class="section" id="delivery"><div class="container"><div class="status"><div><h3>التوصيل في دمشق</h3><p>تفاصيل المناطق والرسوم والمواعيد قيد التجهيز. راسلونا للتأكد من التوصيل لمنطقتكم.</p></div><span class="badge">قيد التطوير</span></div></div></section>
+    <section class="section" id="order"><div class="container order-layout">
+      <form class="panel" id="order-form"><h2>جهّزوا طلبكم</h2><div class="fields">
+        <div class="field wide"><label for="product">المنتج</label><select id="product" required><option value="" disabled selected>اختاروا المنتج</option><option>كبة بأنواعها</option><option>برك جبنة</option><option>برك لحمة</option><option>شيش برك</option></select></div>
+        <div class="field"><label for="quantity">الكمية</label><input id="quantity" required placeholder="مثال: عبوتان"></div>
+        <div class="field"><label for="name">الاسم</label><input id="name" required autocomplete="name"></div>
+        <div class="field"><label for="area">المنطقة في دمشق</label><input id="area" required></div>
+        <div class="field"><label for="payment">الدفع المفضّل</label><select id="payment" required><option value="" disabled selected>اختاروا طريقة الدفع</option><option>نقدًا</option><option>إلكتروني — تأكيد التفاصيل عبر واتساب</option></select></div>
+      </div><button class="btn btn-primary" type="submit">إرسال الطلب عبر واتساب</button><p class="hint">ستُفتح رسالة جاهزة لمراجعتها وإرسالها. نؤكد الطلب ووسيلة الدفع بالتواصل معكم.</p></form>
+      <aside class="panel"><h2>موقعنا</h2><div class="mapbox"><div><span>⌖</span>دمشق، سوريا</div></div><p>الموقع الدقيق ومناطق التوصيل قيد التحديث.</p><a class="order-link" href="https://www.google.com/maps/search/?api=1&query=Damascus%2C%20Syria" target="_blank" rel="noopener">افتحوا خريطة دمشق</a></aside>
+    </div></section>
+    <section class="section"><div class="container contact"><div><h2>نحن بانتظار طلبكم</h2><p>للاستفسار عن الأنواع والأسعار والتوفر.</p></div><a class="btn" href="https://wa.me/963990424380" target="_blank" rel="noopener">راسلونا على واتساب</a></div></section>
   </main>
-
-  <footer><div class="container footer-row"><span>© <span id="year"></span> كبايتي</span><span>بكل محبة، من دمشق</span></div></footer>
+  <footer><div class="container footer"><span>© <span id="year"></span> كبايتي</span><span>بكل محبة، من دمشق</span></div></footer>
   <script>
-    const whatsappNumber = "963990424380";
-    const productSelect = document.getElementById("product");
-    document.querySelectorAll("[data-product]").forEach((link) => {
-      link.addEventListener("click", () => { productSelect.value = link.dataset.product; });
-    });
-    document.getElementById("order-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const details = [
-        "مرحبًا، أود الاستفسار/الطلب من كبايتي:",
-        `المنتج: ${productSelect.value}`,
-        `الكمية: ${document.getElementById("quantity").value.trim()}`,
-        `الاسم: ${document.getElementById("name").value.trim()}`,
-        `المنطقة: ${document.getElementById("area").value.trim()}`,
-        `طريقة الدفع المفضلة: ${document.getElementById("payment").value}`
-      ].join("\n");
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(details)}`, "_blank", "noopener,noreferrer");
-    });
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const whatsappNumber="963990424380";
+    const photos=[
+      "WhatsApp Image 2026-11-07 at 8.57.31 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.34 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.35 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.36 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.37 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.46 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.46 PM (1).jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.46 PM (2).jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.47 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.47 PM (1).jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.48 PM.jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.48 PM (1).jpeg",
+      "WhatsApp Image 2026-11-07 at 8.57.49 PM.jpeg"
+    ];
+    const gallery=document.getElementById("gallery-images");
+    photos.forEach((name,index)=>{const img=document.createElement("img");img.src=encodeURIComponent(name);img.alt=`صورة من منتجات كبايتي ${index+1}`;img.loading="lazy";gallery.appendChild(img);});
+    const product=document.getElementById("product");
+    document.querySelectorAll("[data-product]").forEach(link=>link.addEventListener("click",()=>{product.value=link.dataset.product;}));
+    document.getElementById("order-form").addEventListener("submit",event=>{event.preventDefault();const message=["مرحبًا، أود الطلب من كبايتي:",`المنتج: ${product.value}`,`الكمية: ${document.getElementById("quantity").value.trim()}`,`الاسم: ${document.getElementById("name").value.trim()}`,`المنطقة: ${document.getElementById("area").value.trim()}`,`طريقة الدفع: ${document.getElementById("payment").value}`].join("\n");window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,"_blank","noopener,noreferrer");});
+    document.getElementById("year").textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
